@@ -1,8 +1,8 @@
-template<typename T> 
+template<typename T>
 class prime {
     T n;
 public:
-    prime(T n):n(n) { assert(n > 0); }
+    prime(T n):n(n) {}
     map<int,int> factorlist() {
         if(n == 1) return {};
         T nn = n;
@@ -35,4 +35,15 @@ public:
         for(auto p : fl) ret *= p.second+1;
         return ret;
     };
+    vector<T> enum_divisors() {
+        vector<T> res;
+        for(T i = 1; i*i <= n; i++) {
+            if(n%i == 0) {
+                res.pb(i);
+                if(n/i != i) res.pb(n/i);
+            }
+        }
+        sort(all(res));
+        return res;
+    }
 };
