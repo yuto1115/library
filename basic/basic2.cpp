@@ -37,7 +37,7 @@ istream &operator>>(istream &is, vector<T> &v) {
 template <class T>
 ostream &operator<<(ostream &os, const vector<T> &v) {
   os << '[';
-  rep(i, v.size()) os << v[i] << (i == v.size() - 1 ? ']' : ',');
+  rep(i, v.size()) os << v[i] << (i == int(v.size() - 1) ? ']' : ',');
   return os;
 }
 void Yes(bool b) { cout << (b ? "Yes" : "No") << endl; }
@@ -61,7 +61,7 @@ bool chmax(T &a, T b) {
 const int inf = 1001001001;
 const ll linf = 1001001001001001001;
 
-void solve() {}
+void solve() { $END$ }
 
 int main() {
   ios::sync_with_stdio(false);

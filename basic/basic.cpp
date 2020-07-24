@@ -37,7 +37,7 @@ istream &operator>>(istream &is, vector<T> &v) {
 template <class T>
 ostream &operator<<(ostream &os, const vector<T> &v) {
   os << '[';
-  rep(i, v.size()) os << v[i] << (i == v.size() - 1 ? ']' : ',');
+  rep(i, v.size()) os << v[i] << (i == int(v.size() - 1) ? ']' : ',');
   return os;
 }
 void Yes(bool b) { cout << (b ? "Yes" : "No") << endl; }
@@ -65,4 +65,5 @@ int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
   cout.tie(nullptr);
+  $END$
 }
