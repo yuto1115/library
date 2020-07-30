@@ -40,8 +40,8 @@ ostream &operator<<(ostream &os, const vector<T> &v) {
   rep(i, v.size()) os << v[i] << (i == int(v.size() - 1) ? ']' : ',');
   return os;
 }
-void Yes(bool b) { cout << (b ? "Yes" : "No") << endl; }
-void YES(bool b) { cout << (b ? "YES" : "NO") << endl; }
+void Yes(bool b) { cout << (b ? "Yes" : "No") << '\n'; }
+void YES(bool b) { cout << (b ? "YES" : "NO") << '\n'; }
 template <class T>
 bool chmin(T &a, T b) {
   if (a > b) {
