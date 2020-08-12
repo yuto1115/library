@@ -27,10 +27,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51a6202d-1ddd-4785-a3d1-1b966c45419f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/number/mint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/number/mint.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="51a6202d-1ddd-4785-a3d1-1b966c45419f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,6 +59,13 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -72,7 +76,7 @@
       <updated>1596337254726</updated>
       <workItem from="1596337255773" duration="419000" />
       <workItem from="1597152323353" duration="468000" />
-      <workItem from="1597195331681" duration="49000" />
+      <workItem from="1597195331681" duration="70000" />
     </task>
     <task id="LOCAL-00001" summary="updated basic.cpp basic2.cpp">
       <created>1596337501406</created>
@@ -95,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597152584254</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="updated mint.cpp">
+      <created>1597195395525</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1597195395525</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,13 +129,14 @@
     <MESSAGE value="updated basic.cpp basic2.cpp" />
     <MESSAGE value="updated README.md" />
     <MESSAGE value="updated and added some files" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated and added some files" />
+    <MESSAGE value="updated mint.cpp" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated mint.cpp" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="297" y="23" width="814" height="800" key="CommitChangelistDialog2" timestamp="1597152584097">
+    <state x="297" y="23" width="814" height="800" key="CommitChangelistDialog2" timestamp="1597195395431">
       <screen x="0" y="23" width="1440" height="801" />
     </state>
-    <state x="297" y="23" width="814" height="800" key="CommitChangelistDialog2/0.23.1440.801@0.23.1440.801" timestamp="1597152584097" />
+    <state x="297" y="23" width="814" height="800" key="CommitChangelistDialog2/0.23.1440.801@0.23.1440.801" timestamp="1597195395431" />
     <state x="221" y="62" key="SettingsEditor" timestamp="1597195379947">
       <screen x="0" y="23" width="1440" height="801" />
     </state>
