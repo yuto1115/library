@@ -27,7 +27,7 @@ using LP = pair<ll,ll>;
 template<class S,class T> istream& operator>>(istream &is,pair<S,T> &p) { return is >> p.first >> p.second; }
 template<class S,class T> ostream& operator<<(ostream &os,const pair<S,T> &p) { return os<<'{'<<p.first<<","<<p.second<<'}'; }
 template<class T> istream& operator>>(istream &is,vector<T> &v) { for(T &t:v){is>>t;} return is; }
-template<class T> ostream& operator<<(ostream &os,const vector<T> &v) { os<<'[';rep(i,v.size())os<<v[i]<<(i==int(v.size()-1)?']':','); return os; }
+template<class T> ostream& operator<<(ostream &os,const vector<T> &v) { os<<'[';rep(i,v.size())os<<v[i]<<(i==int(v.size()-1)?"":","); return os<<']'; }
 void Yes(bool b) { cout << (b ? "Yes" : "No") << '\n'; }
 void YES(bool b) { cout << (b ? "YES" : "NO") << '\n'; }
 template<class T> bool chmin(T& a,T b) {if(a > b){a = b; return true;} return false;}
@@ -37,14 +37,13 @@ const ll linf = 1001001001001001001;
 //@formatter:on
 
 void solve() {
-    $END$
+
 }
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
-  cout.tie(nullptr);
-  int t;
-  cin >> t;
-  rep(i, t) solve();
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr); cout.tie(nullptr);
+    int t;
+    cin >> t;
+    rep(i,t) solve();
 }

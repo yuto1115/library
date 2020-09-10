@@ -1,42 +1,54 @@
-template<typename T, typename MERGE, typename UPDATE>
+template<class Monoid>
 class segtree {
+    using T = typename Monoid::value_type;
+    
     int n;
-    vector <T> val;
-    T identity;
-    MERGE merge;
-    UPDATE _update;
+    vector<T> val;
 
 public:
-    segtree(int _n, vector <T> init, T identity,
-            MERGE merge, UPDATE update)
-        : identity(identity), merge(merge), _update(update) {
+    constexpr segtree(int _n, vector<T> init = vector<T>()) {
         n = 1;
         while (n < _n) n *= 2;
-        val.assign(2 * n - 1, identity);
-        rep(i, _n)
-        val[i + n - 1] = init[i];
-        rrep(i, n - 1)
-        val[i] = merge(val[i * 2 + 1], val[i * 2 + 2]);
+        val = vector<T>(2 * n, Monoid::identity);
+        if (init.size()) rep(i, _n) val[i + n] = init[i];
+        rrep(i, n) val[i] = Monoid::operate(val[i * 2], val[i * 2 + 1]);
     }
     
-    void update(int i, T x) {
-        i += n - 1;
-        val[i] = _update(val[i], x);
-        while (i > 0) {
-            i = (i - 1) / 2;
-            val[i] = merge(val[i * 2 + 1], val[i * 2 + 2]);
+    // segment [l,r)
+    T fold(int l, int r) {
+        l += n, r += n;
+        T fold_l = Monoid::identity;
+        T fold_r = Monoid::identity;
+        while (l < r) {
+            if (l & 1) fold_l = Monoid::operate(fold_l, val[l++]);
+            if (r & 1) fold_r = Monoid::operate(val[--r], fold_r);
+            l >>= 1, r >>= 1;
+        }
+        return Monoid::operate(fold_l, fold_r);
+    }
+    
+    template<class F>
+    void update(int i, const F &f) {
+        i += n;
+        val[i] = f(val[i]);
+        while (i > 1) {
+            i >>= 1;
+            val[i] = Monoid::operate(val[i * 2], val[i * 2 + 1]);
         }
     }
+};
+
+class Node {
+public:
+    using value_type = ;
     
-    // segment [a,b)
-    T query(int a, int b, int k = 0, int l = 0, int r = -1) {
-        if (r == -1) r = n;
-        if (b <= l || r <= a) return identity;
-        if (a <= l && r <= b) return val[k];
-        T t1 = query(a, b, 2 * k + 1, l, (l + r) / 2);
-        T t2 = query(a, b, 2 * k + 2, (l + r) / 2, r);
-        return merge(t1, t2);
+    value_type value;
+    
+    Node(value_type value) : value(value) {}
+    
+    static constexpr value_type identity = ;
+    
+    static constexpr value_type operate(const value_type &l, const value_type &r) {
+        return ;
     }
-    
-    T operator[](int i) const { return val[i]; }
 };

@@ -10,7 +10,7 @@ struct Node {
 template<int char_size, int base>
 class trie {
     using node = Node<char_size>;
-    vector <node> nodes;
+    vector<node> nodes;
 
 public:
     trie() { nodes.pb(node(0)); }
