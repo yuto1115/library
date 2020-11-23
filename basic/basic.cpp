@@ -30,6 +30,7 @@ template<class T> istream& operator>>(istream &is,vector<T> &v) { for(T &t:v){is
 template<class T> ostream& operator<<(ostream &os,const vector<T> &v) { os<<'[';rep(i,v.size())os<<v[i]<<(i==int(v.size()-1)?"":","); return os<<']'; }
 void Yes(bool b) { cout << (b ? "Yes" : "No") << '\n'; }
 void YES(bool b) { cout << (b ? "YES" : "NO") << '\n'; }
+template<class T> void fin(T a) { cout << a << endl; exit(0); }
 template<class T> bool chmin(T& a,T b) {if(a > b){a = b; return true;} return false;}
 template<class T> bool chmax(T& a,T b) {if(a < b){a = b; return true;} return false;}
 const int inf = 1001001001;

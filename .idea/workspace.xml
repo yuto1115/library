@@ -29,36 +29,8 @@
   <component name="ChangeListManager">
     <list default="true" id="51a6202d-1ddd-4785-a3d1-1b966c45419f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/basic.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/basic/basic.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/basic2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/basic/basic2.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-structure/BIT.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data-structure/BIT.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-structure/lazy_segtree.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data-structure/lazy_segtree.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data-structure/segtree.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data-structure/segtree.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-structure/unionfind.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data-structure/unionfind.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-structure/weight_unionfind.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data-structure/weight_unionfind.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geometry/geometry.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/geometry/geometry.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/bellman_ford.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/bellman_ford.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/bipartite_matching.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/bipartite_matching.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/diameter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/diameter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/dijkstra.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/dijkstra.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/dx,dy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/dx,dy.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/kruskal.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/kruskal.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/lca.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/lca.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/maxflow.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/maxflow.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/mincostflow.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/mincostflow.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/rerooting.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/rerooting.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/scc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/scc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/number/FFT.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/number/FFT.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/number/combination.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/number/combination.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/number/fraction.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/number/fraction.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/number/mint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/number/mint.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/number/prime.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/number/prime.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/number/sieve.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/number/sieve.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other/binary_search.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/other/binary_search.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other/inversion_number.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/other/inversion_number.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other/lis.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/other/lis.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/string/rolling_hash.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/string/rolling_hash.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/string/trie.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/string/trie.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +69,13 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -112,7 +91,12 @@
       <workItem from="1597915896053" duration="749000" />
       <workItem from="1599431906486" duration="124000" />
       <workItem from="1599462522406" duration="14000" />
-      <workItem from="1599744780236" duration="883000" />
+      <workItem from="1599744780236" duration="922000" />
+      <workItem from="1599806951726" duration="169000" />
+      <workItem from="1603187826836" duration="35000" />
+      <workItem from="1603189101305" duration="16000" />
+      <workItem from="1603284497727" duration="44000" />
+      <workItem from="1603288392578" duration="287000" />
     </task>
     <task id="LOCAL-00001" summary="updated basic.cpp basic2.cpp">
       <created>1596337501406</created>
@@ -156,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597916640598</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="formatted codes">
+      <created>1599745709961</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1599745709961</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,17 +176,19 @@
     <option name="LAST_COMMIT_MESSAGE" value="formatted codes" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="297" y="23" width="814" height="800" key="CommitChangelistDialog2" timestamp="1597916640440">
-      <screen x="0" y="23" width="1440" height="801" />
+    <state x="297" y="23" width="814" height="800" key="CommitChangelistDialog2" timestamp="1599745709772">
+      <screen x="0" y="23" width="1440" height="804" />
     </state>
     <state x="297" y="23" width="814" height="800" key="CommitChangelistDialog2/0.23.1440.801@0.23.1440.801" timestamp="1597916640440" />
+    <state x="297" y="23" key="CommitChangelistDialog2/0.23.1440.804@0.23.1440.804" timestamp="1599745709772" />
     <state x="221" y="62" key="SettingsEditor" timestamp="1597916525817">
       <screen x="0" y="23" width="1440" height="801" />
     </state>
     <state x="221" y="62" key="SettingsEditor/0.23.1440.801@0.23.1440.801" timestamp="1597916525817" />
-    <state x="320" y="159" key="Vcs.Push.Dialog.v2" timestamp="1597203174490">
-      <screen x="0" y="23" width="1440" height="801" />
+    <state x="320" y="160" key="Vcs.Push.Dialog.v2" timestamp="1599745715159">
+      <screen x="0" y="23" width="1440" height="804" />
     </state>
     <state x="320" y="159" key="Vcs.Push.Dialog.v2/0.23.1440.801@0.23.1440.801" timestamp="1597203174490" />
+    <state x="320" y="160" key="Vcs.Push.Dialog.v2/0.23.1440.804@0.23.1440.804" timestamp="1599745715159" />
   </component>
 </project>
