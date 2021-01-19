@@ -47,7 +47,7 @@ public:
         G[from].eb(to,cap,G[to].size());
         G[to].eb(from,0,G[from].size()-1);
     }
-    // O(|E||V|^2) dinic-algorithm
+    // O(|E||V|^2)
     T max_flow(int s,int t) {
         T fl = 0;
         while(true) {

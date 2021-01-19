@@ -22,7 +22,7 @@ class lazy_segtree {
 public:
     VT get(int i) { return Node::operate(tree[i].value.value, tree[i].op.value); }
     
-    lazy_segtree(int _n, vector<VT> init = vector<VT>()) {
+    lazy_segtree(int _n, const vector<VT> &init = vector<VT>()) {
         n = 1;
         while (n < _n) n *= 2;
         tree.assign(n * 2, Node{V::identity, O::identity});

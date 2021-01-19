@@ -12,7 +12,7 @@ public:
         val = vector<T>(2 * n, Monoid::identity);
     }
     
-    constexpr segtree(vector<T> init) {
+    constexpr segtree(const vector<T> &init) {
         int _n = init.size();
         n = 1;
         while (n < _n) n *= 2;

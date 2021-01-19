@@ -3,7 +3,7 @@ struct matrix {
     int h,w;
     vector<vector<T>> v;
     constexpr matrix(int h,int w,T t):h(h),w(w),v(vector<vector<T>>(h,vector<T>(w,t))) {}
-    constexpr matrix(vector<vector<T>> v):v(v),h(v.size()),w(v[0].size()) {}
+    constexpr matrix(const vector<vector<T>> &v):v(v),h(v.size()),w(v[0].size()) {}
     constexpr matrix& operator+=(const matrix& a) { rep(i,h) rep(j,w) v[i][j] += a.v[i][j]; return *this; }
     constexpr matrix& operator*=(const int& k) { rep(i,h) rep(j,w) v[i][j] *= k; return *this; }
     constexpr matrix& operator-=(const matrix& a) { *this += a*(-1); return *this; }
