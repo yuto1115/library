@@ -41,7 +41,7 @@ class HLD {
     }
 
 public:
-    HLD(vvi &G) : G(G) {
+    HLD(const vvi &G) : G(G) {
         init();
     }
     
@@ -68,7 +68,7 @@ public:
 //    q and f must be commutative i.e. q(l,r) = q(r,l)
 //    set edge true for query to edges
     template<class T, class Q, class F>
-    T fold(int u, int v, const T &e, const Q &q, const F &f, bool edge = false) {
+    T fold(int u, int v, const T &e, const Q &q, const F &f, bool edge) {
         T l = e, r = e;
         for (;; v = par[head[v]]) {
             if (in[u] > in[v]) swap(u, v), swap(l, r);
@@ -79,7 +79,7 @@ public:
     }
     
     template<class F>
-    void update(int u, int v, const F &f, bool edge = false) {
+    void update(int u, int v, const F &f, bool edge) {
         for (;; v = par[head[v]]) {
             if (in[u] > in[v]) swap(u, v);
             if (head[u] == head[v]) break;

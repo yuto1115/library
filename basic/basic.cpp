@@ -8,6 +8,7 @@
 #define rrep(i,n) for (ll i = ll(n)-1; i >= 0; i--)
 #define all(a) a.begin(),a.end()
 #define rall(a) a.rbegin(),a.rend()
+#define popcount(x) __builtin_popcount(x)
 #define pb push_back
 #define eb emplace_back
 #ifdef __LOCAL
@@ -43,16 +44,17 @@ template<class S,class T> istream& operator>>(istream &is,pair<S,T> &p) { return
 template<class S,class T> ostream& operator<<(ostream &os,const pair<S,T> &p) { return os<<'{'<<p.first<<","<<p.second<<'}'; }
 template<class T> istream& operator>>(istream &is,vector<T> &v) { for(T &t:v){is>>t;} return is; }
 template<class T> ostream& operator<<(ostream &os,const vector<T> &v) { os<<'[';rep(i,v.size())os<<v[i]<<(i==int(v.size()-1)?"":","); return os<<']'; }
+template<class T> void vecout(const vector<T> &v,char div='\n') { rep(i,v.size()) cout<<v[i]<<(i==int(v.size()-1)?'\n':div);}
 template<class T> bool chmin(T& a,T b) {if(a > b){a = b; return true;} return false;}
 template<class T> bool chmax(T& a,T b) {if(a < b){a = b; return true;} return false;}
 void scan(){}
 template <class Head, class... Tail> void scan(Head& head, Tail&... tail){ cin >> head; scan(tail...); }
 template<class T> void print(const T& t){ cout << t << '\n'; }
 template <class Head, class... Tail> void print(const Head& head, const Tail&... tail){ cout<<head<<' '; print(tail...); }
-template<class T> void fin(T a) { print(a); exit(0); }
-const string yes = {"no","yes"};
-const string Yes = {"No","Yes"};
-const string YES = {"NO","YES"};
+template<class... T> void fin(const T&... a) { print(a...); exit(0); }
+const string yes[] = {"no","yes"};
+const string Yes[] = {"No","Yes"};
+const string YES[] = {"NO","YES"};
 const int inf = 1001001001;
 const ll linf = 1001001001001001001;
 //@formatter:on
