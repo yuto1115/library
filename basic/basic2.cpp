@@ -5,10 +5,13 @@
 #define rep2(i,s,n) for (ll i = ll(s); i < ll(n); ++i)
 #define rep3(i,s,n,d) for(ll i = ll(s); i < ll(n); i+=d)
 #define rep(...) overload4(__VA_ARGS__,rep3,rep2,rep1)(__VA_ARGS__)
-#define rrep(i,n) for (ll i = ll(n)-1; i >= 0; i--)
+#define rrep1(i,n) for (ll i = ll(n)-1; i >= 0; i--)
+#define rrep2(i,n,t) for (ll i = ll(n)-1; i >= (ll)t; i--)
+#define rrep3(i,n,t,d) for (ll i = ll(n)-1; i >= (ll)t; i-=d)
+#define rrep(...) overload4(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)
 #define all(a) a.begin(),a.end()
 #define rall(a) a.rbegin(),a.rend()
-#define popcount(x) __builtin_popcount(x)
+#define popcount(x) __builtin_popcountll(x)
 #define pb push_back
 #define eb emplace_back
 #ifdef __LOCAL
@@ -51,6 +54,14 @@ void scan(){}
 template <class Head, class... Tail> void scan(Head& head, Tail&... tail){ cin >> head; scan(tail...); }
 template<class T> void print(const T& t){ cout << t << '\n'; }
 template <class Head, class... Tail> void print(const Head& head, const Tail&... tail){ cout<<head<<' '; print(tail...); }
+struct Init_io {
+    Init_io() {
+        ios::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
+        cout << boolalpha << fixed << setprecision(15);
+    }
+} init_io;
 const string yes[] = {"no","yes"};
 const string Yes[] = {"No","Yes"};
 const string YES[] = {"NO","YES"};
@@ -63,8 +74,6 @@ void solve() {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr); cout.tie(nullptr);
     int t;
     cin >> t;
     rep(i,t) solve();

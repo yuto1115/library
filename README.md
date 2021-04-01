@@ -1,4 +1,4 @@
 # library
-library for competitive programming
+C++ library for competitive programming
 
-競技プログラミング用のライブラリです
+Sources may not be verified yet.
