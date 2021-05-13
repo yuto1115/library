@@ -214,8 +214,8 @@ vector <point> intersection(const circle &a, const circle &b) {
     double x = (a.r * a.r + d * d - b.r * b.r) / (2 * d);
     double y = sqrt(a.r * a.r - x * x);
     point p = (b.o - a.o).rot90() * y / d;
-    point tomid = a.o + (b.o - a.o) * x / d;
-    return {tomid + p, tomid - p};
+    point to_mid = a.o + (b.o - a.o) * x / d;
+    return {to_mid - p, to_mid + p};
 }
 
 vector <circle> circle_with_two_points_and_radius(const point &a, const point &b, const double &r) {
@@ -227,12 +227,50 @@ vector <circle> circle_with_two_points_and_radius(const point &a, const point &b
     return ret;
 };
 
-vector <point> tangent_line(const circle &c, const point &p) {
+vector <point> tangent_point(const circle &c, const point &p) {
     int s = sgn(dist(c.o, p) - c.r);
     if (s < 0) return {};
     if (s == 0) return {p};
     double d = (p - c.o).norm() - c.r * c.r;
     return intersection(c, circle(p, sqrt(d)));
+}
+
+vector <line> tangent_line(const circle &c, const point &p) {
+    vector <point> v = tangent_point(c, p);
+    if (v.empty()) return {};
+    if (v.size() == 1) return {line(p, p + (c.o - p).rot90())};
+    vector <line> res;
+    for (auto tp : v) res.eb(p, tp);
+    return res;
+}
+
+vector <line> tangent_line(const circle &a, const circle &b) {
+    if (sgn(a.r - b.r) < 0) return tangent_line(b, a);
+    double ar = a.r, br = b.r, d = dist(a.o, b.o);
+    if (sgn(d - (ar - br)) < 0) return {};
+    else if (sgn(d - (ar - br)) == 0) {
+        point p = (a.o * (-br) + b.o * ar) / (ar - br);
+        return {line(p, p + (a.o - p).rot90())};
+    } else {
+        vector <line> res;
+        {
+            double theta = acos((ar - br) / d);
+            {
+                point p = a.o + ((b.o - a.o) / d * ar).rot(-theta);
+                res.eb(p, p + (a.o - p).rot90());
+            }
+            {
+                point p = a.o + ((b.o - a.o) / d * ar).rot(theta);
+                res.eb(p, p + (a.o - p).rot90());
+            }
+        }
+        if (sgn(d - (ar + br)) >= 0) {
+            point p = (a.o * br + b.o * ar) / (ar + br);
+            vector <line> lines = tangent_line(a, p);
+            for (line l : lines) res.pb(l);
+        }
+        return res;
+    }
 }
 
 vector <point> convex_hull(vector <point> v) {

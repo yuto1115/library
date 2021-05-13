@@ -44,7 +44,9 @@ public:
         return res *= a;
     }
     
-    constexpr modint pow(ll t) const {
+    constexpr modint
+    pow(ll
+    t) const {
         modint res = 1, a(*this);
         while (t > 0) {
             if (t & 1) res *= a;
@@ -54,12 +56,21 @@ public:
         return res;
     }
     
+    friend istream &operator>>(istream &is, modint &a);
+    
     // for prime mod
-    constexpr modint inv() const { return pow(mod - 2); }
+    constexpr modint
     
-    constexpr modint &operator/=(const modint &a) { return *this *= a.inv(); }
+    inv() const { return pow(mod - 2); }
     
-    constexpr modint operator/(const modint &a) const {
+    constexpr modint
+    &
+    
+    operator/=(const modint &a) { return *this *= a.inv(); }
+    
+    constexpr modint
+    
+    operator/(const modint &a) const {
         modint res(*this);
         return res /= a;
     }
@@ -69,12 +80,7 @@ using modint998244353 = modint<998244353>;
 using modint1000000007 = modint<1000000007>;
 
 template<int mod>
-istream &operator>>(istream &is, modint<mod> &a) {
-    ll x;
-    is >> x;
-    a = modint<mod>(x);
-    return is;
-}
+istream &operator>>(istream &is, modint<mod> &a) { return is >> a.x; }
 
 template<int mod>
 constexpr ostream &operator<<(ostream &os, const modint<mod> &a) { return os << a.val(); }
@@ -86,11 +92,20 @@ template<int mod>
 constexpr bool operator!=(const modint<mod> &a, const modint<mod> &b) { return a.val() != b.val(); }
 
 template<int mod>
-constexpr modint<mod> &operator++(modint<mod> &a) { return a += 1; }
+constexpr modint<mod>
+&
+operator++(modint<mod>
+&a) {
+return a += 1; }
 
 template<int mod>
-constexpr modint<mod> &operator--(modint<mod> &a) { return a -= 1; }
+constexpr modint<mod>
+&
+operator--(modint<mod>
+&a) {
+return a -= 1; }
 
 using mint = ;
 
 using vm = vector<mint>;
+using vvm = vector<vm>;

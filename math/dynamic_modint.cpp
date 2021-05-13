@@ -6,7 +6,7 @@ public:
     
     dynamic_modint(ll x = 0) : x((x % mod + mod) % mod) { assert(mod > 0); }
     
-    static constexpr int get_mod() { return mod; }
+    static int get_mod() { return mod; }
     
     constexpr int val() const { return x; }
     
@@ -56,6 +56,8 @@ public:
         return res;
     }
     
+    friend istream &operator>>(istream &is, dynamic_modint &a);
+    
     // for prime mod
     dynamic_modint inv() const { return pow(mod - 2); }
     
@@ -82,3 +84,4 @@ dynamic_modint &operator--(dynamic_modint &a) { return a -= 1; }
 using mint = dynamic_modint;
 
 using vm = vector<mint>;
+using vvm = vector<vm>;

@@ -12,13 +12,15 @@ public:
         val = vector<T>(2 * n, Monoid::identity);
     }
     
-    constexpr segtree(const vector<T> &init) {
+    constexpr segtree(const vector <T> &init = vector<T>()) {
         int _n = init.size();
         n = 1;
         while (n < _n) n *= 2;
         val = vector<T>(2 * n, Monoid::identity);
-        rep(i, _n) val[i + n] = init[i];
-        rrep(i, n) val[i] = Monoid::operate(val[i * 2], val[i * 2 + 1]);
+        rep(i, _n)
+        val[i + n] = init[i];
+        rrep(i, n)
+        val[i] = Monoid::operate(val[i * 2], val[i * 2 + 1]);
     }
     
     // segment [l,r)
@@ -42,6 +44,12 @@ public:
             i >>= 1;
             val[i] = Monoid::operate(val[i * 2], val[i * 2 + 1]);
         }
+    }
+    
+    
+    T get(int i) {
+        assert(i >= 0 and i < n);
+        return val[i + n];
     }
 };
 

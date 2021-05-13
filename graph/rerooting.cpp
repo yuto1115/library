@@ -1,48 +1,48 @@
-template<typename T,typename MERGE,typename ADDROOT>
+template<class T, T (*merge)(T, T), T (*add_root)(T, int, int), T (*id)()>
 class rerooting {
     int n;
     vvi tree;
-    T identity;
-    MERGE merge;
-    ADDROOT addRoot;
-    vector<vector<T>> dp;
-    vector<T> ans;
-
-    T dfs(int v = 0,int p = -1) {
-        T sum = identity;
-        dp[v].resize(tree[v].size());
-        rep(i,tree[v].size()) {
-            int u = tree[v][i];
-            if(u == p) continue;
-            dp[v][i] = dfs(u,v);
-            sum = merge(sum,dp[v][i]);
+    vector <vector<T>> dp;
+    vector <T> ans;
+    
+    T dfs(int u = 0, int p = -1) {
+        T sum = id();
+        dp[u].resize(tree[u].size());
+        rep(i, tree[u].size())
+        {
+            int v = tree[u][i];
+            if (v == p) continue;
+            dp[u][i] = dfs(v, u);
+            sum = merge(sum, add_root(dp[u][i], u, v));
         }
-        return addRoot(sum);
+        return sum;
     }
-    void dfs2(T dpP,int v = 0,int p = -1) {
-        int sz = tree[v].size();
-        rep(i,sz) if(tree[v][i] == p) dp[v][i] = dpP;
-        vector<T> sumL(sz+1,identity),sumR(sz+1,identity);
-        rep(i,sz) sumL[i+1] = merge(sumL[i],dp[v][i]);
-        rrep(i,sz) sumR[i] = merge(sumR[i+1],dp[v][i]);
-        ans[v] = addRoot(sumL[sz]);
-        rep(i,sz) {
-            int u = tree[v][i];
-            if(u == p) continue;
-            T t = merge(sumL[i],sumR[i+1]);
-            dfs2(addRoot(t),u,v);
+    
+    void dfs2(T dpP, int u = 0, int p = -1) {
+        int sz = tree[u].size();
+        rep(i, sz)
+        if (tree[u][i] == p) dp[u][i] = dpP;
+        vector <T> sumL(sz + 1, id()), sumR(sz + 1, id());
+        rep(i, sz)
+        sumL[i + 1] = merge(sumL[i], add_root(dp[u][i], u, tree[u][i]));
+        rrep(i, sz)
+        sumR[i] = merge(sumR[i + 1], add_root(dp[u][i], u, tree[u][i]));
+        ans[u] = sumL[sz];
+        rep(i, sz)
+        {
+            int v = tree[u][i];
+            if (v == p) continue;
+            T t = merge(sumL[i], sumR[i + 1]);
+            dfs2(t, v, u);
         }
-    }
-    void init() {
-        dfs();
-        dfs2(identity);
     }
 
 public:
-    rerooting(int n,vvi tree,T identity,MERGE merge,ADDROOT addRoot)
-            :n(n),tree(tree),identity(identity),merge(merge),addRoot(addRoot),dp(n),ans(n) {
-        init();
+    explicit rerooting(const vvi &tree) : n(tree.size()), tree(tree), dp(n), ans(n) {
+        dfs();
+        dfs2(id());
     };
+    
     T get_ans(int i) {
         return ans[i];
     }

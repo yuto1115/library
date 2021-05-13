@@ -12,7 +12,7 @@ class lazy_segtree {
 //        if (tree[k].op.value == O::identity) return;
         if (k < n) {
             tree[k * 2].op.value = O::operate(tree[k * 2].op.value, tree[k].op.value);
-            tree[k * 2 + 1].op = O::operate(tree[k * 2 + 1].op.value, tree[k].op.value);
+            tree[k * 2 + 1].op.value = O::operate(tree[k * 2 + 1].op.value, tree[k].op.value);
         }
         OT ot = O::duplicate(tree[k].op.value, r - l);
         tree[k].value.value = Node::operate(tree[k].value.value, ot);

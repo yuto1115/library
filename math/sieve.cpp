@@ -13,32 +13,36 @@ class sieve {
     }
 
 public:
-    sieve(int n):n(n),val(n+1) {
+    sieve(int n) : n(n), val(n + 1) {
         init();
     }
-    map<int,int> factorlist(int x) {
-        if(n < 2) return {};
-        map<int,int> ret;
+    
+    map<int, int> factor_list(int x) {
+        if (n < 2) return {};
+        map<int, int> ret;
         int now = x;
-        while(now > 1) {
+        while (now > 1) {
             ret[val[now]]++;
             now /= val[now];
         }
         return ret;
     }
+    
     vi unique_factor(int x) {
-        map<int,int> m = factorlist(x);
+        map<int, int> m = factor_list(x);
         vi ret;
         for(P p : m) ret.pb(p.first);
         return ret;
     };
-    bool isPrime(int x) {
+    
+    bool is_prime(int x) {
         return x >= 2 and val[x] == x;
     }
+    
     int count_divisor(int x) {
         int ret = 1;
-        map<int,int> fl = factorlist(x);
-        for(auto p : fl) ret *= p.second+1;
+        map<int, int> fl = factor_list(x);
+        for (auto p : fl) ret *= p.second + 1;
         return ret;
     };
 } sv();
