@@ -1,110 +1,137 @@
-template<class Node>
+template<class M>
 class lazy_segtree {
-    using V = typename Node::value_structure;
-    using VT = typename V::value_type;
-    using O = typename Node::operate_structure;
-    using OT = typename O::value_type;
+    using S = typename M::S;
+    using F = typename M::F;
     
-    int n;
-    vector<Node> tree;
+    int n, log;
+    vector <S> d;
+    vector <F> lz;
     
-    void propagate(int k, int l, int r) {
-//        if (tree[k].op.value == O::identity) return;
-        if (k < n) {
-            tree[k * 2].op.value = O::operate(tree[k * 2].op.value, tree[k].op.value);
-            tree[k * 2 + 1].op.value = O::operate(tree[k * 2 + 1].op.value, tree[k].op.value);
+    void update(int k) { d[k] = M::op(d[2 * k], d[2 * k + 1]); }
+    
+    void all_apply(int k, F f) {
+        d[k] = M::mapping(f, d[k]);
+        if (k < n) lz[k] = M::composition(f, lz[k]);
+    }
+    
+    void push(int k) {
+        all_apply(2 * k, lz[k]);
+        all_apply(2 * k + 1, lz[k]);
+        lz[k] = M::id;
+    }
+
+public:
+    constexpr lazy_segtree() : lazy_segtree(0) {}
+    
+    constexpr lazy_segtree(int _n) : lazy_segtree(vector<S>(_n, M::e)) {}
+    
+    constexpr lazy_segtree(const vector <S> &v) {
+        log = 0;
+        while (1 << log < v.size()) log++;
+        n = 1 << log;
+        d.assign(2 * n, M::e);
+        lz.assign(n, M::id);
+        rep(i, v.size())
+        d[n + i] = v[i];
+        rrep(i, n, 1)
+        update(i);
+    }
+    
+    void set(int p, S x) {
+        assert(0 <= p and p < n);
+        p += n;
+        rrep(i, log + 1, 1)
+        push(p >> i);
+        d[p] = x;
+        rep(i, 1, log + 1)
+        update(p >> i);
+    }
+    
+    S get(int p) {
+        assert(0 <= p and p < n);
+        p += n;
+        rrep(i, log + 1, 1)
+        push(p >> i);
+        return d[p];
+    }
+    
+    S prod(int l, int r) {
+        assert(0 <= l and l <= r and r <= n);
+        
+        l += n, r += n;
+        
+        rrep(i, log + 1, 1)
+        {
+            if ((l >> i) << i != l) push(l >> i);
+            if ((r >> i) << i != r) push(r >> i);
         }
-        OT ot = O::duplicate(tree[k].op.value, r - l);
-        tree[k].value.value = Node::operate(tree[k].value.value, ot);
-        tree[k].op.value = O::identity;
-    }
-
-public:
-    VT get(int i) { return Node::operate(tree[i].value.value, tree[i].op.value); }
-    
-    lazy_segtree(int _n, const vector<VT> &init = vector<VT>()) {
-        n = 1;
-        while (n < _n) n *= 2;
-        tree.assign(n * 2, Node{V::identity, O::identity});
-        if (init.size()) rep(i, _n) tree[i + n].value.value = init[i];
-        rrep(i, n) tree[i].value.value = V::operate(tree[i * 2].value.value, tree[i * 2 + 1].value.value);
+        
+        S sl = M::e, sr = M::e;
+        while (l < r) {
+            if (l & 1) sl = M::op(sl, d[l++]);
+            if (r & 1) sr = M::op(d[--r], sr);
+            l >>= 1, r >>= 1;
+        }
+        
+        return M::op(sl, sr);
     }
     
-    void update(int a, int b, OT x, int k = 1, int l = 0, int r = -1) {
-        if (r == -1) r = n;
-        propagate(k, l, r);
-        if (a <= l && r <= b) {
-            tree[k].op.value = O::operate(tree[k].op.value, x);
-            propagate(k, l, r);
-        } else if (a < r && l < b) {
-            update(a, b, x, k * 2, l, (l + r) / 2);
-            update(a, b, x, k * 2 + 1, (l + r) / 2, r);
-            tree[k].value.value = V::operate(tree[k * 2].value.value, tree[k * 2 + 1].value.value);
+    void apply(int l, int r, F f) {
+        assert(0 <= l and l <= r and r <= n);
+        
+        l += n, r += n;
+        
+        rrep(i, log + 1, 1)
+        {
+            if ((l >> i) << i != l) push(l >> i);
+            if ((r >> i) << i != r) push(r >> i);
+        }
+        
+        {
+            int l2 = l, r2 = r;
+            while (l < r) {
+                if (l & 1) all_apply(l++, f);
+                if (r & 1) all_apply(--r, f);
+                l >>= 1, r >>= 1;
+            }
+            l = l2, r = r2;
+        }
+        
+        rep(i, 1, log + 1)
+        {
+            if ((l >> i) << i != l) update(l >> i);
+            if ((r >> i) << i != r) update(r >> i);
         }
     }
-    
-    // segment [a,b)
-    VT fold(int a, int b, int k = 1, int l = 0, int r = -1) {
-        if (r == -1) r = n;
-        propagate(k, l, r);
-        if (b <= l || r <= a) return V::identity;
-        if (a <= l && r <= b) return tree[k].value.value;
-        VT lt = fold(a, b, k * 2, l, (l + r) / 2);
-        VT rt = fold(a, b, k * 2 + 1, (l + r) / 2, r);
-        return V::operate(lt, rt);
-    }
 };
 
-class Value_structure {
+class M {
 public:
-    using value_type = ;
+    using S = ;
     
-    value_type value;
+    static constexpr S
+    e =;
     
-    Value_structure(value_type value) : value(value) {}
+    static constexpr S
     
-    static constexpr value_type identity = ;
+    op(const S &l, const S &r) {
     
-    static constexpr value_type operate(const value_type &l, const value_type &r) {
-        return ;
-    }
-};
-
-class Operate_structure {
-public:
-    using value_type = ;
-    
-    value_type value;
-    
-    Operate_structure(value_type value) : value(value) {}
-    
-    static constexpr value_type identity = ;
-    
-    static constexpr value_type operate(const value_type &l, const value_type &r) {
-        return ;
     }
     
-    static constexpr value_type duplicate(const value_type &v, int len) {
-        return ;
+    using F = ;
+    
+    static constexpr F
+    id =;
+    
+    static constexpr F
+    
+    composition(const F &g, const F &f) {
+    
     }
-};
-
-class Node {
-public:
-    using value_structure = Value_structure;
-    using operate_structure = Operate_structure;
     
-    value_structure value;
-    operate_structure op;
-
-private:
-    using V = value_structure::value_type;
-    using O = operate_structure::value_type;
-
-public:
-    Node(V value, O op) : value(value), op(op) {}
+    static constexpr S
     
-    static constexpr V operate(const V &l, const O &r) {
-        return ;
+    mapping(const F &f, const S &x) {
+    
     }
 };

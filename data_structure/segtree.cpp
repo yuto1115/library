@@ -6,22 +6,18 @@ class segtree {
     vector<T> val;
 
 public:
-    constexpr segtree(int _n) {
-        n = 1;
-        while (n < _n) n *= 2;
-        val = vector<T>(2 * n, Monoid::identity);
-    }
-    
     constexpr segtree(const vector <T> &init = vector<T>()) {
         int _n = init.size();
         n = 1;
         while (n < _n) n *= 2;
-        val = vector<T>(2 * n, Monoid::identity);
+        val.assign(n * 2, Monoid::identity);
         rep(i, _n)
         val[i + n] = init[i];
         rrep(i, n)
         val[i] = Monoid::operate(val[i * 2], val[i * 2 + 1]);
     }
+    
+    constexpr segtree(int _n) : segtree(vector<T>(_n, Monoid::identity)) {}
     
     // segment [l,r)
     T fold(int l, int r) {

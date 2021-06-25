@@ -28,24 +28,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51a6202d-1ddd-4785-a3d1-1b966c45419f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/math/lagrange_interpolation.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/basic.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/basic/basic.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/basic2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/basic/basic2.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_structure/lazy_segtree.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data_structure/lazy_segtree.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_structure/segtree.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data_structure/segtree.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_structure/unionfind.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data_structure/unionfind.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_structure/weight_unionfind.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data_structure/weight_unionfind.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geometry/geometry.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/geometry/geometry.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/rerooting.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/rerooting.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/math/dynamic_modint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/math/dynamic_modint.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/math/extGCD.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/math/ext_gcd.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/math/modint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/math/modint.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/math/polynomial.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/math/polynomial.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/math/prime.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/math/prime.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/math/sieve.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/math/sieve.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrix/linear_equation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/matrix/linear_equation.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrix/matrix.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/matrix/matrix.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,13 +82,6 @@
       <recent name="$PROJECT_DIR$/matrix" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -135,7 +111,7 @@
       <workItem from="1613036024688" duration="3000" />
       <workItem from="1617266766927" duration="11000" />
       <workItem from="1617266841879" duration="882000" />
-      <workItem from="1620894207921" duration="689000" />
+      <workItem from="1620894207921" duration="2246000" />
     </task>
     <task id="LOCAL-00001" summary="updated basic.cpp basic2.cpp">
       <created>1596337501406</created>
@@ -221,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617267560241</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="updated files">
+      <created>1620895057662</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1620895057662</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
