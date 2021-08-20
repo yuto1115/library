@@ -40,3 +40,4 @@ vector<T> convolution_xor(vector<T> a, vector<T> b) {
     ifwt(a);
     a.resize(s);
     return a;
+}
