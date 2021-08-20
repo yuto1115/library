@@ -27,7 +27,7 @@ public:
     
     constexpr lazy_segtree(const vector <S> &v) {
         log = 0;
-        while (1 << log < v.size()) log++;
+        while (1 << log < (int) v.size()) log++;
         n = 1 << log;
         d.assign(2 * n, M::e);
         lz.assign(n, M::id);
@@ -57,15 +57,15 @@ public:
     
     S prod(int l, int r) {
         assert(0 <= l and l <= r and r <= n);
-        
+    
         l += n, r += n;
-        
+    
         rrep(i, log + 1, 1)
         {
             if ((l >> i) << i != l) push(l >> i);
             if ((r >> i) << i != r) push(r >> i);
         }
-        
+    
         S sl = M::e, sr = M::e;
         while (l < r) {
             if (l & 1) sl = M::op(sl, d[l++]);
@@ -78,15 +78,15 @@ public:
     
     void apply(int l, int r, F f) {
         assert(0 <= l and l <= r and r <= n);
-        
+    
         l += n, r += n;
-        
+    
         rrep(i, log + 1, 1)
         {
             if ((l >> i) << i != l) push(l >> i);
             if ((r >> i) << i != r) push(r >> i);
         }
-        
+    
         {
             int l2 = l, r2 = r;
             while (l < r) {
@@ -96,7 +96,7 @@ public:
             }
             l = l2, r = r2;
         }
-        
+    
         rep(i, 1, log + 1)
         {
             if ((l >> i) << i != l) update(l >> i);
@@ -115,7 +115,7 @@ public:
     static constexpr S
     
     op(const S &l, const S &r) {
-    
+        return;
     }
     
     using F = ;
@@ -126,12 +126,12 @@ public:
     static constexpr F
     
     composition(const F &g, const F &f) {
-    
+        return;
     }
     
     static constexpr S
     
     mapping(const F &f, const S &x) {
-    
+        return;
     }
 };

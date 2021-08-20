@@ -1,4 +1,4 @@
-vi BFS(int start, const vvi &G) {
+vi BFS(const vvi &G, int start) {
     int n = G.size();
     vi dist(n, inf);
     dist[start] = 0;
