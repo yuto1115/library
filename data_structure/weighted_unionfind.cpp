@@ -1,10 +1,10 @@
 template<typename T>
-class weight_unionfind {
+class weighted_unionfind {
     int n;
     vi par, rank;
     vector <T> diff_weight;
 public:
-    weight_unionfind(int n) : n(n), par(n, -1), rank(n, 0), diff_weight(n, 0) {}
+    weighted_unionfind(int n) : n(n), par(n, -1), rank(n, 0), diff_weight(n, 0) {}
     
     int root(int x) {
         if (par[x] < 0) return x;
