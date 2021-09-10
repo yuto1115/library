@@ -20,7 +20,6 @@ public:
         if (nn != 1) ret[nn]++;
         return ret;
     }
-    
     vi unique_factor() {
         map<int, int> m = factor_list();
         vi ret;
@@ -42,10 +41,10 @@ public:
     
     vector <T> enum_divisors() {
         vector <T> res;
-        for(T i = 1; i*i <= n; i++) {
-            if(n%i == 0) {
+        for (T i = 1; i * i <= n; i++) {
+            if (n % i == 0) {
                 res.pb(i);
-                if(n/i != i) res.pb(n/i);
+                if (n / i != i) res.pb(n / i);
             }
         }
         sort(all(res));

@@ -1,13 +1,14 @@
-class lca {
+class LCA {
     int n;
     vvi G;
     int root;
     vi depth;
     vvi par;
-    void dfs(int v,int p,int d) {
+    
+    void dfs(int v, int p, int d) {
         par[0][v] = p;
         depth[v] = d;
-        for(int u : G[v]) if(u != p) dfs(u,v,d+1);
+        for (int u : G[v]) if (u != p) dfs(u, v, d + 1);
     }
     void init() {
         n = G.size();
@@ -22,13 +23,16 @@ class lca {
     }
 
 public:
-    lca(vvi G, int root = 0): G(G), root(root) { init(); }
-    int operator()(int u,int v) {
-        if(depth[u] > depth[v]) swap(u,v);
-        rep(k,30) if((depth[v]-depth[u])>>k&1) v = par[k][v];
-        if(u == v) return u;
-        rrep(k,30) {
-            if(par[k][u] != par[k][v]) {
+    LCA(vvi G, int root = 0) : G(G), root(root) { init(); }
+    
+    int operator()(int u, int v) {
+        if (depth[u] > depth[v]) swap(u, v);
+        rep(k, 30)
+        if ((depth[v] - depth[u]) >> k & 1) v = par[k][v];
+        if (u == v) return u;
+        rrep(k, 30)
+        {
+            if (par[k][u] != par[k][v]) {
                 u = par[k][u];
                 v = par[k][v];
             }

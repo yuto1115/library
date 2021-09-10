@@ -17,25 +17,39 @@ operator+=(const matrix &a) {
     rep(j, get_w())(*this)[i][j] += a[i][j];
     return *this;
 }
-    
-    constexpr matrix &operator*=(const int &k) {
+
+constexpr matrix
+&
+
+operator*=(const int &k) {
     rep(i, get_h())
     rep(j, get_w())(*this)[i][j] *= k;
     return *this;
 }
-    
-    constexpr matrix &operator-=(const matrix &a) {
-        *this += a * (-1);
-        return *this;
-    }
-    
-    constexpr matrix operator+(const matrix &a) const { return res(*this) += a; }
-    
-    constexpr matrix operator*(const int &k) const { return res(*this) *= k; }
-    
-    constexpr matrix operator-(const matrix &a) const { return res(*this) -= a; }
-    
-    constexpr matrix operator*(const matrix &a) const {
+
+constexpr matrix
+&
+
+operator-=(const matrix &a) {
+    *this += a * (-1);
+    return *this;
+}
+
+constexpr matrix
+
+operator+(const matrix &a) const { return res(*this) += a; }
+
+constexpr matrix
+
+operator*(const int &k) const { return res(*this) *= k; }
+
+constexpr matrix
+
+operator-(const matrix &a) const { return res(*this) -= a; }
+
+constexpr matrix
+
+operator*(const matrix &a) const {
     int h = get_h(), w = get_w(), ah = a.get_h(), aw = a.get_w();
     assert(w == ah);
     matrix res(h, vector<T>(aw));

@@ -1,13 +1,14 @@
 class sieve {
     int n;
     vi val;
-
+    
     void init() {
-        rep(i,n+1) val[i] = i;
-        for(int i = 2; i*i <= n; i++) {
-            if(val[i] != i) continue;
-            for(int j = i*2; j <= n; j += i) {
-                if(val[j] == j) val[j] = i;
+        rep(i, n + 1)
+        val[i] = i;
+        for (int i = 2; i * i <= n; i++) {
+            if (val[i] != i) continue;
+            for (int j = i * 2; j <= n; j += i) {
+                if (val[j] == j) val[j] = i;
             }
         }
     }
@@ -31,7 +32,7 @@ public:
     vi unique_factor(int x) {
         map<int, int> m = factor_list(x);
         vi ret;
-        for(P p : m) ret.pb(p.first);
+        for (P p : m) ret.pb(p.first);
         return ret;
     };
     
@@ -45,4 +46,11 @@ public:
         for (auto p : fl) ret *= p.second + 1;
         return ret;
     };
+    
+    vi prime_list() {
+        vi res;
+        rep(i, 2, n + 1)
+        if (is_prime(i)) res.pb(i);
+        return res;
+    }
 } sv();

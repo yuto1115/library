@@ -353,7 +353,7 @@ public:
                 t.insert(t.begin(), t.back());
                 t.pop_back();
             }
-            
+    
             // Step 2.e'
             t.resize(2 * m);
             ntt(t);
@@ -364,7 +364,7 @@ public:
             t[i] *= g_fft[i];
             ntt(t, true);
             t.resize(m);
-            
+    
             // Step 2.f'
             fps v(f.begin() + m, f.begin() + min(deg, 2 * m));
             v.resize(m);
@@ -373,7 +373,7 @@ public:
             t = t.integral();
             rep(i, m)
             v[i] -= t[m + i];
-            
+    
             // Step 2.g'
             v.resize(2 * m);
             ntt(v);
@@ -381,7 +381,7 @@ public:
             v[i] *= f_fft[i];
             ntt(v, true);
             v.resize(m);
-            
+    
             // Step 2.h'
             rep(i, min(deg - m, m))
             f[m + i] = v[i];

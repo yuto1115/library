@@ -1,14 +1,14 @@
 using ull = unsigned long long;
-const ull mod = (1ul<<61)-1;
-const ull mask30 = (1ul<<30)-1;
-const ull mask31 = (1ul<<31)-1;
+const ull mod = (1ull << 61) - 1;
+const ull mask30 = (1ull << 30) - 1;
+const ull mask31 = (1ull << 31) - 1;
 const ull mask61 = mod;
 
 ull calc_mod(ull x) {
-    ull xu = x>>61;
-    ull xd = x&mask61;
-    ull res = xu+xd;
-    if(res >= mod) res -= mod;
+    ull xu = x >> 61;
+    ull xd = x & mask61;
+    ull res = xu + xd;
+    if (res >= mod) res -= mod;
     return res;
 }
 
@@ -32,7 +32,7 @@ class rolling_hash {
     vector<ull> hash1,hash2,pow1,pow2;
 
     void init() {
-         random_device rnd;
+        random_device rnd;
         mt19937_64 mt(rnd());
         uniform_int_distribution<ull> dist(2,mod-2);
         base1 = dist(mt);

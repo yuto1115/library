@@ -20,6 +20,7 @@ void ifwt(vector<T> &v) {
         rep(j, n) {
             if ((j & i) == 0) {
                 T x = v[j], y = v[j | i];
+                // T = mint の時は 2 の逆元を前計算すると速い
                 v[j] = (x + y) / 2, v[j | i] = (x - y) / 2;
             }
         }

@@ -34,12 +34,16 @@ public:
         return res += a;
     }
     
-    constexpr modint operator-(const modint &a) const {
+    constexpr modint
+    
+    operator-(const modint &a) const {
         modint res(*this);
         return res -= a;
     }
     
-    constexpr modint operator*(const modint &a) const {
+    constexpr modint
+    
+    operator*(const modint &a) const {
         modint res(*this);
         return res *= a;
     }
@@ -56,7 +60,8 @@ public:
         return res;
     }
     
-    friend istream &operator>>(istream &is, modint &a);
+    template<int m>
+    friend istream &operator>>(istream &, modint<m> &);
     
     // for prime mod
     constexpr modint
@@ -83,7 +88,17 @@ template<int mod>
 istream &operator>>(istream &is, modint<mod> &a) { return is >> a.x; }
 
 template<int mod>
-constexpr ostream &operator<<(ostream &os, const modint<mod> &a) { return os << a.val(); }
+constexpr ostream
+&
+operator<<(ostream
+&os,
+const modint<mod> &a
+) {
+return os << a.
+
+val();
+
+}
 
 template<int mod>
 constexpr bool operator==(const modint<mod> &a, const modint<mod> &b) { return a.val() == b.val(); }

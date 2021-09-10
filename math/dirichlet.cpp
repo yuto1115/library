@@ -40,38 +40,46 @@ public:
         assert(_V.size() == l + 1);
     }
     
-    constexpr T get_v(int i) const {
+    constexpr T
+    
+    get_v(int i) const {
         assert(1 <= i and i <= k);
         return v[i];
     }
     
-    constexpr vector <T> get_v() const { return v; }
+    constexpr vector<T>
     
-    constexpr T get_V(int i) const {
+    get_v() const { return v; }
+    
+    constexpr T
+    
+    get_V(int i) const {
         assert(1 <= i and i <= l);
         return V[i];
     }
     
-    constexpr vector <T> get_V() const { return V; }
+    constexpr vector<T>
+    
+    get_V() const { return V; }
     
     // O(K log K + (NL)^(1/2)) ≒ O(N^(2/3)(log N)^(1/3))
     dirichlet operator*(const dirichlet &d) const {
-        const vector <T> &a = v, &A = V;
-        const vector <T> &b = d.get_v(), &B = d.get_V();
-        vector <T> A_low(k + 1), B_low(k + 1);
+        const vector<T> &a = v, &A = V;
+        const vector<T> &b = d.get_v(), &B = d.get_V();
+        vector<T> A_low(k + 1), B_low(k + 1);
         rep(i, k)
         A_low[i + 1] = A_low[i] + a[i + 1];
         rep(i, k)
         B_low[i + 1] = B_low[i] + b[i + 1];
         auto get_A = [&](int i) { return (i <= k ? A_low[i] : A[n / i]); };
         auto get_B = [&](int i) { return (i <= k ? B_low[i] : B[n / i]); };
-        vector <T> c(k + 1);
+        vector<T> c(k + 1);
         rep(i, 1, k + 1)
         rep(j, 1, k / i + 1)
         {
             c[i * j] += a[i] * b[j];
         }
-        vector <T> C(l + 1);
+        vector<T> C(l + 1);
         rep(i, 1, l + 1)
         {
             int now = n / i;
@@ -91,13 +99,13 @@ public:
     
     dirichlet operator/(const dirichlet &d) const {
         assert(d.get_v(1) != T(0));
-        const vector <T> &a = v, &A = V;
-        const vector <T> &b = d.get_v(), &B = d.get_V();
-        vector <T> B_low(k + 1);
+        const vector<T> &a = v, &A = V;
+        const vector<T> &b = d.get_v(), &B = d.get_V();
+        vector<T> B_low(k + 1);
         rep(i, k)
         B_low[i + 1] = B_low[i] + b[i + 1];
         auto get_B = [&](int i) { return (i <= k ? B_low[i] : B[n / i]); };
-        vector <T> c = a;
+        vector<T> c = a;
         rep(i, 1, k + 1)
         {
             c[i] /= b[1];
@@ -106,10 +114,10 @@ public:
                 c[i * j] -= c[i] * b[j];
             }
         }
-        vector <T> C_low(k + 1);
+        vector<T> C_low(k + 1);
         rep(i, k)
         C_low[i + 1] = C_low[i] + c[i + 1];
-        vector <T> C = A;
+        vector<T> C = A;
         auto get_C = [&](int i) { return (i <= k ? C_low[i] : C[n / i]); };
         rrep(i, l + 1, 1)
         {
