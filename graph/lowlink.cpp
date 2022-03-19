@@ -2,23 +2,23 @@ class lowlink {
     vvi G;
     vi ord, low;
     
-    int dfs(int v, int p, int k) {
-        ord[v] = low[v] = k++;
+    int dfs(int u, int p, int k) {
+        ord[u] = low[u] = k++;
         bool flag = false;
         int cnt = 0;
-        for (int u : G[v]) {
-            if (ord[u] < 0) {
+        for (int v: G[u]) {
+            if (ord[v] < 0) {
                 cnt++;
-                k = dfs(u, v, k);
-                chmin(low[v], low[u]);
-                flag |= p >= 0 and ord[v] <= low[u];
-                if (ord[v] < low[u]) bridge.eb(v, u);
-            } else if (u != p) {
-                chmin(low[v], ord[u]);
+                k = dfs(v, u, k);
+                chmin(low[u], low[v]);
+                flag |= p >= 0 and ord[u] <= low[v];
+                if (ord[u] < low[v]) bridge.eb(u, v);
+            } else if (v != p) {
+                chmin(low[u], ord[v]);
             }
         }
         flag |= p < 0 and cnt > 1;
-        if (flag) articulation.pb(v);
+        if (flag) articulation.pb(u);
         return k;
     }
     
@@ -35,5 +35,5 @@ public:
     vi articulation;
     vp bridge;
     
-    lowlink(vvi &G) : G(G) { init(); }
+    lowlink(const vvi &G) : G(G) { init(); }
 };

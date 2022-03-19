@@ -1,47 +1,57 @@
-// Decomposition of Strongly Connected Components
 class SCC {
     int n;
-    vvi G, rG;
-    vi ord, bel;
-    vb used;
+    vvi G;
+    vi ord, low;
+    stack<int> st;
     
-    void init() {
-        rG.resize(n);
-        rep(i, n)
-        for (int j : G[i]) rG[j].pb(i);
-        bel.resize(n);
-        used.resize(n);
-    }
-    
-    void dfs(int v) {
-        used[v] = true;
-        for (int u : G[v]) if (!used[u]) dfs(u);
-        ord.pb(v);
-    }
-    
-    void rdfs(int v, int k) {
-        used[v] = true;
-        bel[v] = k;
-        for (int u : rG[v]) if (!used[u]) rdfs(u, k);
+    void dfs(int u, int &k) {
+        ord[u] = low[u] = k++;
+        st.push(u);
+        for (int v: G[u]) {
+            if (ord[v] == -1) {
+                dfs(v, k);
+                chmin(low[u], low[v]);
+            } else {
+                chmin(low[u], ord[v]);
+            }
+        }
+        if (low[u] == ord[u]) {
+            while (true) {
+                int now = st.top();
+                st.pop();
+                ord[now] = inf;
+                id[now] = num;
+                if (now == u) break;
+            }
+            ++num;
+        }
     }
 
 public:
     // number of components
     int num;
+    vi id;
+    vvi scc_list;
     
     SCC(const vvi &G) : G(G) {
         n = G.size();
-        init();
-        used.assign(n, false);
-        rep(i, n)
-        if (!used[i]) dfs(i);
-        used.assign(n, false);
+        ord.assign(n, -1);
+        low.resize(n);
+        id.resize(n);
+        num = 0;
         int k = 0;
-        rrep(i, n)
-        if (!used[ord[i]]) rdfs(ord[i], k++);
-        num = k;
+        rep(i, n)
+        if (ord[i] == -1) dfs(i, k);
+        vi cnt(num);
+        rep(i, n)
+        {
+            id[i] = num - 1 - id[i];
+            ++cnt[id[i]];
+        }
+        scc_list.resize(num);
+        rep(i, num)
+        scc_list[i].reserve(cnt[i]);
+        rep(i, n)
+        scc_list[id[i]].pb(i);
     }
-    
-    // belonging components(topological order)
-    int get(int i) { return bel[i]; }
 };

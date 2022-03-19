@@ -411,4 +411,30 @@ public:
         res.insert(res.begin(), l * k, 0);
         return res;
     }
+    
+    // calc f(x + c)
+    // time complexity : O(n log n)
+    fps taylor_shift(mint c) {
+        int n = this->size();
+        vm fact(n), ifact(n);
+        fact[0] = 1;
+        rep(i, 1, n)
+        fact[i] = fact[i - 1] * i;
+        ifact[n - 1] = fact[n - 1].inv();
+        rrep(i, n - 1)
+        ifact[i] = ifact[i + 1] * (i + 1);
+        fps f(n), g(n);
+        mint nc = 1;
+        rep(i, n)
+        {
+            f[i] = (*this)[n - 1 - i] * fact[n - 1 - i];
+            g[i] = nc * ifact[i];
+            nc *= c;
+        }
+        fps h = f * g;
+        fps res(n);
+        rep(i, n)
+        res[i] = ifact[i] * h[n - 1 - i];
+        return res;
+    }
 };

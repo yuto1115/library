@@ -8,12 +8,12 @@ class segtree {
 public:
     constexpr segtree() : segtree(0) {}
     
-    constexpr segtree(int n) : segtree(vector<S>(n, M::id)) {}
+    constexpr segtree(int n) : segtree(vector<S>(n, M::e)) {}
     
     constexpr segtree(const vector <S> &init) : _n(int(init.size())) {
         sz = 1;
         while (sz < _n) sz *= 2;
-        d.assign(sz * 2, M::id);
+        d.assign(sz * 2, M::e);
         rep(i, _n)
         d[sz + i] = init[i];
         rrep(i, sz, 1)
@@ -30,6 +30,17 @@ public:
         }
     }
     
+    template<class F>
+    void apply(int p, const F &f) {
+        assert(0 <= p and p < _n);
+        p += sz;
+        d[p] = f(d[p]);
+        while (p > 1) {
+            p >>= 1;
+            d[p] = M::op(d[2 * p], d[2 * p + 1]);
+        }
+    }
+    
     S get(int p) {
         assert(0 <= p and p < _n);
         return d[sz + p];
@@ -38,8 +49,8 @@ public:
     S prod(int l, int r) {
         assert(0 <= l and l <= r and r <= _n);
         l += sz, r += sz;
-        S prod_l = M::id;
-        S prod_r = M::id;
+        S prod_l = M::e;
+        S prod_r = M::e;
         while (l < r) {
             if (l & 1) prod_l = M::op(prod_l, d[l++]);
             if (r & 1) prod_r = M::op(d[--r], prod_r);
@@ -50,17 +61,6 @@ public:
     
     S all_prod() {
         return d[1];
-    }
-    
-    template<class F>
-    void apply(int p, const F &f) {
-        assert(0 <= p and p < _n);
-        p += sz;
-        d[p] = f(d[p]);
-        while (p > 1) {
-            p >>= 1;
-            d[p] = M::op(d[2 * p], d[2 * p + 1]);
-        }
     }
     
     template<class F>
@@ -119,7 +119,7 @@ public:
     using S = ;
     
     static constexpr S
-    id =;
+    e =;
     
     static constexpr S
     

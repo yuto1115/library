@@ -31,7 +31,7 @@ class dinic {
     
     T dfs(int v, int t, T f) {
         if (v == t) return f;
-        for (int &i = iter[v]; i < G[v].size(); i++) {
+        for (int &i = iter[v]; i < (int) G[v].size(); i++) {
             auto &e = G[v][i];
             if (e.cap > 0 && level[v] < level[e.to]) {
                 T d = dfs(e.to, t, min(f, e.cap));
@@ -61,7 +61,7 @@ public:
             if (level[t] < 0) return fl;
             iter.assign(n, 0);
             T f;
-            while ((f = dfs(s, t, inf)) > 0) fl += f;
+            while ((f = dfs(s, t, numeric_limits<T>::max())) > 0) fl += f;
         }
     }
 };

@@ -1,16 +1,22 @@
-int lis(int n,const vi& v) {
-    vi dp(n,inf);
+int lis(const vi &v, bool strict = true) {
+    int n = v.size();
+    vi dp(n, inf);
     dp[0] = v[0];
     int now = 0;
-    rep2(i,1,n) {
-        if(v[i] > dp[now]) {
-            dp[now+1] = v[i];
+    rep(i, 1, n)
+    {
+        if (v[i] > dp[now]) {
+            dp[now + 1] = v[i];
             now++;
-        }
-        else {
-            auto it = upper_bound(all(dp),v[i]);
-            *it = v[i];
+        } else {
+            if (strict) {
+                auto it = lower_bound(all(dp), v[i]);
+                *it = v[i];
+            } else {
+                auto it = upper_bound(all(dp), v[i]);
+                *it = v[i];
+            }
         }
     }
-    return now+1;
+    return now + 1;
 }

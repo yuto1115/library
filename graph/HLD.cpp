@@ -2,7 +2,7 @@
 class HLD {
     vvi G;
     int n;
-    vi sz, in, out, head, rev, par;
+    vi sz, in, head, rev, par;
     
     void dfs_sz(int u, int p) {
         par[u] = p;
@@ -24,14 +24,12 @@ class HLD {
             head[v] = (G[u][0] == v ? head[u] : v);
             dfs_hld(v, u, t);
         }
-        out[u] = t;
     }
     
     void init() {
         n = G.size();
         sz.resize(n);
         in.resize(n);
-        out.resize(n);
         head.resize(n);
         rev.resize(n);
         par.resize(n);

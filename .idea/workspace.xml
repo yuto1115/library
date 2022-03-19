@@ -31,8 +31,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51a6202d-1ddd-4785-a3d1-1b966c45419f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/data_structure/LCA_prod.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_structure/median_manager.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_structure/on_demand_lazy_segtree.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graph/cycle.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graph/min_cut_k.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/math/sum_of_geometric_sequences.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/other/Mo.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/string/manacher.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/basic.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/basic/basic.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/basic2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/basic/basic2.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_structure/BIT.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data_structure/BIT.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_structure/lazy_segtree.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data_structure/lazy_segtree.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_structure/li_chao_tree.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data_structure/li_chao_tree.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_structure/segtree.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data_structure/segtree.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_structure/slope_trick.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data_structure/slope_trick.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/HLD.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/HLD.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/LCA.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/LCA.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/MCF.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/MCF.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/SCC.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/SCC.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/dijkstra.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/dijkstra.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/dinic.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/dinic.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/lowlink.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/lowlink.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/math/combination.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/math/combination.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/math/crt.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/math/crt.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/math/fps.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/math/fps.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/math/modint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/math/modint.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/other/lis.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/other/lis.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/string/run_length_compress.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/string/run_length_compress.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +74,9 @@
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="g14ofgas" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="1fWcOCFr1cyfEmw9Tyae87WVpX9" />
   <component name="ProjectLevelVcsManager">
@@ -87,13 +117,6 @@
       <recent name="$PROJECT_DIR$/matrix" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -129,7 +152,13 @@
       <workItem from="1629519557601" duration="3000" />
       <workItem from="1629530599605" duration="5000" />
       <workItem from="1631265631969" duration="2242000" />
-      <workItem from="1631267919172" duration="277000" />
+      <workItem from="1631267919172" duration="1519000" />
+      <workItem from="1631269472513" duration="182000" />
+      <workItem from="1631269683468" duration="698000" />
+      <workItem from="1647659376920" duration="227000" />
+      <workItem from="1647659664741" duration="1133000" />
+      <workItem from="1647661648911" duration="10000" />
+      <workItem from="1647661718544" duration="1000" />
     </task>
     <task id="LOCAL-00001" summary="updated basic.cpp basic2.cpp">
       <created>1596337501406</created>
@@ -243,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631267227768</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="updated files">
+      <created>1631268251432</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1631268251432</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,7 +295,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

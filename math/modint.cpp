@@ -24,12 +24,17 @@ public:
     
     constexpr modint &operator--() { return *this -= 1; }
     
-    constexpr modint &operator*=(const modint &a) {
+    constexpr modint
+    &
+    
+    operator*=(const modint &a) {
         (x *= a.val()) %= mod;
         return *this;
     }
     
-    constexpr modint operator+(const modint &a) const {
+    constexpr modint
+    
+    operator+(const modint &a) const {
         modint res(*this);
         return res += a;
     }

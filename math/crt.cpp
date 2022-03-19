@@ -10,7 +10,7 @@ LP crt(const vl &r, const vl &m) {
     {
         assert(m[i] >= 1);
         ll p, q;
-        ll g = extGCD(M, m[i], p, q); // p is inv of M/d (mod. m[i]/d)
+        ll g = ext_gcd(M, m[i], p, q); // p is inv of M/d (mod. m[i]/d)
         if ((r[i] - R) % g != 0) return P(0, 0);
         ll tmp = (r[i] - R) / g * p % (m[i] / g);
         R += M * tmp;

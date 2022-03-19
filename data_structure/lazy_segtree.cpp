@@ -47,6 +47,17 @@ public:
         update(p >> i);
     }
     
+    template<class F>
+    void apply(int p, const F &f) {
+        assert(0 <= p and p < _n);
+        p += sz;
+        rrep(i, log + 1, 1)
+        push(p >> i);
+        d[p] = f(d[p]);
+        rep(i, 1, log + 1)
+        update(p >> i);
+    }
+    
     S get(int p) {
         assert(0 <= p and p < _n);
         p += sz;
@@ -57,22 +68,22 @@ public:
     
     S prod(int l, int r) {
         assert(0 <= l and l <= r and r <= _n);
-    
+        
         l += sz, r += sz;
-    
+        
         rrep(i, log + 1, 1)
         {
             if ((l >> i) << i != l) push(l >> i);
             if ((r >> i) << i != r) push(r >> i);
         }
-    
+        
         S sl = M::e, sr = M::e;
         while (l < r) {
             if (l & 1) sl = M::op(sl, d[l++]);
             if (r & 1) sr = M::op(d[--r], sr);
             l >>= 1, r >>= 1;
         }
-    
+        
         return M::op(sl, sr);
     }
     
@@ -82,15 +93,15 @@ public:
     
     void apply(int l, int r, F f) {
         assert(0 <= l and l <= r and r <= _n);
-        
+    
         l += sz, r += sz;
-        
+    
         rrep(i, log + 1, 1)
         {
             if ((l >> i) << i != l) push(l >> i);
             if ((r >> i) << i != r) push(r >> i);
         }
-        
+    
         {
             int l2 = l, r2 = r;
             while (l < r) {
@@ -100,7 +111,7 @@ public:
             }
             l = l2, r = r2;
         }
-        
+    
         rep(i, 1, log + 1)
         {
             if ((l >> i) << i != l) update(l >> i);

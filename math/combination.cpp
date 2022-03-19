@@ -1,8 +1,8 @@
 class combination {
-    vector <mint> fact, ifact;
 public:
+    vector <mint> fact, ifact;
+    
     combination(int n) : fact(n + 1), ifact(n + 1) {
-        assert(n < mod);
         fact[0] = 1;
         for (int i = 1; i <= n; ++i) fact[i] = fact[i - 1] * i;
         ifact[n] = fact[n].inv();
