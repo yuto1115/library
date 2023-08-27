@@ -1,21 +1,21 @@
-class unionfind {
+class dsu {
     int n;
     vector<int> par, rank;
 public:
-    unionfind(int n) : n(n), par(n, -1), rank(n, 0) {}
+    dsu(int n) : n(n), par(n, -1), rank(n, 0) {}
     
-    int root(int x) {
+    int leader(int x) {
         if (par[x] < 0) return x;
-        else return par[x] = root(par[x]);
+        else return par[x] = leader(par[x]);
     }
     
-    bool is_root(int x) { return root(x) == x; }
+    bool is_leader(int x) { return leader(x) == x; }
     
-    bool same(int x, int y) { return root(x) == root(y); };
+    bool same(int x, int y) { return leader(x) == leader(y); };
     
     bool merge(int x, int y) {
-        x = root(x);
-        y = root(y);
+        x = leader(x);
+        y = leader(y);
         if (x == y) return false;
         if (rank[x] < rank[y]) swap(x, y);
         if (rank[x] == rank[y]) rank[x]++;
@@ -24,16 +24,15 @@ public:
         return true;
     }
     
-    int size(int x) { return -par[root(x)]; };
+    int size(int x) { return -par[leader(x)]; };
     
-    vi roots() {
+    vi leaders() {
         vi res;
-        rep(i, n)
-        if (root(i) == i) res.pb(i);
+        rep(i, n) if (leader(i) == i) res.pb(i);
         return res;
     }
     
     bool connected() {
-        return roots().size() == 1;
+        return leaders().size() == 1;
     }
 };
