@@ -39,27 +39,27 @@ public:
         assert(_v.size() == k + 1);
         assert(_V.size() == l + 1);
     }
-    
+
     constexpr T
-    
+
     get_v(int i) const {
         assert(1 <= i and i <= k);
         return v[i];
     }
-    
+
     constexpr vector<T>
-    
+
     get_v() const { return v; }
-    
+
     constexpr T
-    
+
     get_V(int i) const {
         assert(1 <= i and i <= l);
         return V[i];
     }
-    
+
     constexpr vector<T>
-    
+
     get_V() const { return V; }
     
     // O(K log K + (NL)^(1/2)) ≒ O(N^(2/3)(log N)^(1/3))

@@ -1,20 +1,16 @@
-template<typename T>
-class matrix : public vector<vector < T>>
+template<class T, int H, int W>
+class matrix : public array<array < T, W>, H
 
-{
+> {
 public:
-using vector<vector < T>>::vector;
-
-constexpr int get_h() const { return this->size(); }
-
-constexpr int get_w() const { return (get_h() ? (*this)[0].size() : 0); }
+using array<array < T, W>, H>::array;
 
 constexpr matrix
 &
 
 operator+=(const matrix &a) {
-    rep(i, get_h())
-    rep(j, get_w())(*this)[i][j] += a[i][j];
+    rep(i, H)
+    rep(j, W)(*this)[i][j] += a[i][j];
     return *this;
 }
 
@@ -22,8 +18,8 @@ constexpr matrix
 &
 
 operator*=(const int &k) {
-    rep(i, get_h())
-    rep(j, get_w())(*this)[i][j] *= k;
+    rep(i, H)
+    rep(j, W)(*this)[i][j] *= k;
     return *this;
 }
 
@@ -47,15 +43,14 @@ constexpr matrix
 
 operator-(const matrix &a) const { return res(*this) -= a; }
 
-constexpr matrix
+template<int X>
+constexpr matrix<T, H, X>
 
-operator*(const matrix &a) const {
-    int h = get_h(), w = get_w(), ah = a.get_h(), aw = a.get_w();
-    assert(w == ah);
-    matrix res(h, vector<T>(aw));
-    rep(i, h)
-    rep(j, w)
-    rep(k, aw)
+operator*(const matrix<T, W, X> &a) const {
+    matrix res(H, vector<T>(X));
+    rep(i, H)
+    rep(j, W)
+    rep(k, X)
     res[i][k] += (*this)[i][j] * a[j][k];
     return res;
 }
@@ -68,11 +63,10 @@ operator*=(const matrix &a) { return *this = *this * a; }
 constexpr matrix
 pow(ll
 t) const {
-int h = get_h(), w = get_w();
-assert(h
-== w);
-matrix res(h, vector<T>(w)), a(*this);
-rep(i, get_h()
+static_assert(H
+== W);
+matrix res(H, vector<T>(W)), a(*this);
+rep(i, H
 ) res[i][i] = 1;
 while (t > 0) {
 if (t & 1) res *=
@@ -86,4 +80,5 @@ res;
 }
 };
 
-using mat = matrix<>;
+template<int H, int W>
+using mat = matrix<, H, W>;

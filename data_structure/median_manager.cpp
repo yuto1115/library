@@ -3,7 +3,7 @@ class median_manager {
     int even_mode;
     multiset <T> l, r;
     int sz = 0;
-    
+
     void adjust() {
         if (int(l.size()) > int(r.size()) + 1) {
             r.insert(*l.rbegin());
@@ -25,14 +25,14 @@ public:
         l.insert(numeric_limits<T>::min());
         r.insert(numeric_limits<T>::max());
     }
-    
+
     void insert(T x) {
         ++sz;
         if (x < *r.begin()) l.insert(x);
         else r.insert(x);
         adjust();
     }
-    
+
     void erase(T x) {
         --sz;
         if (x < *r.begin()) {
@@ -46,7 +46,7 @@ public:
         }
         adjust();
     }
-    
+
     T get() {
         assert(sz > 0);
         T vl = *l.rbegin();

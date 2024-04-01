@@ -1,7 +1,4 @@
-#include<bits/stdc++.h>
-#include<ext/pb_ds/assoc_container.hpp>
-#include<ext/pb_ds/tree_policy.hpp>
-#include<ext/pb_ds/tag_and_trait.hpp>
+#include <bits/stdc++.h>
 #define overload4(_1, _2, _3, _4, name, ...) name
 #define rep1(i, n) for (ll i = 0; i < ll(n); ++i)
 #define rep2(i, s, n) for (ll i = ll(s); i < ll(n); ++i)
@@ -19,7 +16,7 @@
 #define SORT(a) sort(all(a));
 #define REV(a) reverse(all(a));
 #define SZ(a) int(a.size())
-#define popcount(x) __builtin_popcountll(x)
+#define ppc(x) popcount((unsigned long long) x)
 #define pf push_front
 #define pb push_back
 #define ef emplace_front
@@ -38,7 +35,6 @@
 #define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)
 #define LD(...) ld __VA_ARGS__;scan(__VA_ARGS__)
 using namespace std;
-using namespace __gnu_pbds;
 using ll = long long;
 using ld = long double;
 using P = pair<int, int>;
@@ -58,6 +54,8 @@ using vb = vector<bool>;
 using vvb = vector<vb>;
 using vp = vector<P>;
 using vvp = vector<vp>;
+using vlp = vector<LP>;
+using vvlp = vector<vlp>;
 template<class T>
 using PQ = priority_queue <pair<T, int>, vector<pair < T, int>>, greater <pair<T, int>>>;
 
@@ -117,13 +115,28 @@ ostream &operator<<(ostream &os, const multiset <T> &st) {
     return os << '}';
 }
 
+template<class T, class U>
+ostream &operator<<(ostream &os, const map <T, U> &mp) {
+    os << '{';
+    auto it = mp.begin();
+    while (it != mp.end()) {
+        os << (it == mp.begin() ? "" : ", ") << *it;
+        it++;
+    }
+    return os << '}';
+}
+
 template<class T>
 void vecout(const vector <T> &v, char div = '\n') {
     rep(i, v.size()) cout << v[i] << (i == int(v.size() - 1) ? '\n' : div);
 }
 
 template<class T>
-bool chmin(T &a, T b) {
+bool constexpr
+chmin(T
+&a,
+T b
+) {
     if (a > b) {
         a = b;
         return true;
@@ -132,7 +145,11 @@ bool chmin(T &a, T b) {
 }
 
 template<class T>
-bool chmax(T &a, T b) {
+bool constexpr
+chmax(T
+&a,
+T b
+) {
     if (a < b) {
         a = b;
         return true;
@@ -215,6 +232,10 @@ void sort_by(vector <T> &head, Tail &... tail) {
     rearrange(ord, head, tail...);
 }
 
+bool in_rect(int i, int j, int h, int w) {
+    return 0 <= i and i < h and 0 <= j and j < w;
+}
+
 template<class T, class S>
 vector <T> cumsum(const vector <S> &v, bool shift_one = true) {
     int n = v.size();
@@ -264,7 +285,6 @@ void solve() {
 }
 
 int main() {
-    int t;
-    cin >> t;
-    rep(i, t) solve();
+    INT(t);
+    rep(_, t) solve();
 }

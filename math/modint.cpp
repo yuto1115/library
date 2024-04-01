@@ -3,56 +3,56 @@ class modint {
     ll x;
 public:
     constexpr modint(ll x = 0) : x((x % mod + mod) % mod) {}
-    
+
     static constexpr int get_mod() { return mod; }
-    
+
     constexpr int val() const { return x; }
-    
+
     constexpr modint operator-() const { return modint(-x); }
-    
+
     constexpr modint &operator+=(const modint &a) {
         if ((x += a.val()) >= mod) x -= mod;
         return *this;
     }
-    
+
     constexpr modint &operator++() { return *this += 1; }
-    
+
     constexpr modint &operator-=(const modint &a) {
         if ((x += mod - a.val()) >= mod) x -= mod;
         return *this;
     }
-    
+
     constexpr modint &operator--() { return *this -= 1; }
-    
+
     constexpr modint
     &
-    
+
     operator*=(const modint &a) {
         (x *= a.val()) %= mod;
         return *this;
     }
-    
+
     constexpr modint
-    
+
     operator+(const modint &a) const {
         modint res(*this);
         return res += a;
     }
-    
+
     constexpr modint
-    
+
     operator-(const modint &a) const {
         modint res(*this);
         return res -= a;
     }
-    
+
     constexpr modint
-    
+
     operator*(const modint &a) const {
         modint res(*this);
         return res *= a;
     }
-    
+
     constexpr modint
     pow(ll
     t) const {
@@ -64,22 +64,22 @@ public:
         }
         return res;
     }
-    
+
     template<int m>
     friend istream &operator>>(istream &, modint<m> &);
-    
+
     // for prime mod
     constexpr modint
-    
+
     inv() const { return pow(mod - 2); }
-    
+
     constexpr modint
     &
-    
+
     operator/=(const modint &a) { return *this *= a.inv(); }
-    
+
     constexpr modint
-    
+
     operator/(const modint &a) const {
         modint res(*this);
         return res /= a;

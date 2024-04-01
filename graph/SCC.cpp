@@ -3,7 +3,7 @@ class SCC {
     vvi G;
     vi ord, low;
     stack<int> st;
-    
+
     void dfs(int u, int &k) {
         ord[u] = low[u] = k++;
         st.push(u);
@@ -32,7 +32,7 @@ public:
     int num;
     vi id;
     vvi scc_list;
-    
+
     SCC(const vvi &G) : G(G) {
         n = G.size();
         ord.assign(n, -1);

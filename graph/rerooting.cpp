@@ -1,12 +1,12 @@
 template<class D>
 class rerooting {
     using T = typename D::T;
-    
+
     int n;
     vvi tree;
     vector<vector<T>> dp;
     vector<T> ans;
-    
+
     T dfs(int u = 0, int p = -1) {
         T sum = D::id;
         dp[u].resize(tree[u].size());
@@ -18,7 +18,7 @@ class rerooting {
         }
         return sum;
     }
-    
+
     void dfs2(T dpP, int u = 0, int p = -1) {
         int sz = tree[u].size();
         rep(i, sz) if (tree[u][i] == p) dp[u][i] = dpP;
@@ -39,7 +39,7 @@ public:
         dfs();
         dfs2(D::id);
     };
-    
+
     T get_ans(int i) {
         return ans[i];
     }
@@ -47,13 +47,13 @@ public:
 
 struct D {
     using T = ;
-    
+
     static const T id = ;
-    
+
     static T merge(const T &a, const T &b) {
         return ;
     }
-    
+
     // u : root, p : parent of u
     static T add_root(const T &a, [[maybe_unused]] int u, [[maybe_unused]] int p) {
         return ;

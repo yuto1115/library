@@ -1,8 +1,9 @@
 // find cycle of functional graph
-vb find_cycle(const vi &to) {
+pair <vb, vvi> find_cycle(const vi &to) {
     int n = to.size();
     vb res(n);
     vi seen(n);
+    vvi cycles;
     rep(i, n)
     {
         if (seen[i]) continue;
@@ -17,8 +18,12 @@ vb find_cycle(const vi &to) {
                 rrep(j, SZ(ls))
                 {
                     if (ls[j] == now) {
+                        cycles.pb({});
                         rep(k, j, SZ(ls))
-                        res[ls[k]] = true;
+                        {
+                            res[ls[k]] = true;
+                            cycles.back().pb(ls[k]);
+                        }
                         break;
                     }
                 }
@@ -27,5 +32,5 @@ vb find_cycle(const vi &to) {
         }
         for (int j: ls) seen[j] = 2;
     }
-    return res;
+    return {res, cycles};
 }

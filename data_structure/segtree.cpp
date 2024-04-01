@@ -1,15 +1,15 @@
 template<class M>
 class segtree {
     using S = typename M::S;
-    
+
     int _n, sz;
     vector <S> d;
 
 public:
     constexpr segtree() : segtree(0) {}
-    
+
     constexpr segtree(int n) : segtree(vector<S>(n, M::e)) {}
-    
+
     constexpr segtree(const vector <S> &init) : _n(int(init.size())) {
         sz = 1;
         while (sz < _n) sz *= 2;
@@ -19,7 +19,7 @@ public:
         rrep(i, sz, 1)
         d[i] = M::op(d[2 * i], d[2 * i + 1]);
     }
-    
+
     void set(int p, S x) {
         assert(0 <= p and p < _n);
         p += sz;
@@ -29,7 +29,7 @@ public:
             d[p] = M::op(d[2 * p], d[2 * p + 1]);
         }
     }
-    
+
     template<class F>
     void apply(int p, const F &f) {
         assert(0 <= p and p < _n);
@@ -40,12 +40,12 @@ public:
             d[p] = M::op(d[2 * p], d[2 * p + 1]);
         }
     }
-    
+
     S get(int p) {
         assert(0 <= p and p < _n);
         return d[sz + p];
     }
-    
+
     S prod(int l, int r) {
         assert(0 <= l and l <= r and r <= _n);
         l += sz, r += sz;
@@ -58,11 +58,11 @@ public:
         }
         return M::op(prod_l, prod_r);
     }
-    
+
     S all_prod() {
         return d[1];
     }
-    
+
     template<class F>
     int max_right(int l, F f) const {
         assert(0 <= l && l <= _n);
@@ -87,7 +87,7 @@ public:
         } while ((l & -l) != l);
         return _n;
     }
-    
+
     template<class F>
     int min_left(int r, F f) const {
         assert(0 <= r && r <= _n);
@@ -117,12 +117,12 @@ public:
 class M {
 public:
     using S = ;
-    
+
     static constexpr S
     e =;
-    
+
     static constexpr S
-    
+
     op(const S &l, const S &r) {
         return;
     }

@@ -7,14 +7,14 @@ class LCA {
     vi dep;
     vvi par;
     vector <vector<S>> dp;
-    
+
     void dfs(int u, int p, S ps, int d) {
         par[0][u] = p;
         dep[u] = d;
         dp[0][u] = ps;
-        for (auto[v, s]: G[u]) if (v != p) dfs(v, u, s, d + 1);
+        for (auto [v, s]: G[u]) if (v != p) dfs(v, u, s, d + 1);
     }
-    
+
     void init() {
         n = G.size();
         dep.assign(n, -1);
@@ -40,10 +40,10 @@ class LCA {
 
 public:
     LCA(const vector <vector<pair < int, S>>
-    
+
     > &G) :
     G(G) {init();}
-    
+
     int operator()(int u, int v) {
         if (dep[u] > dep[v]) swap(u, v);
         rep(k, 30)
@@ -59,12 +59,12 @@ public:
         assert(par[0][u] == par[0][v]);
         return par[0][u];
     }
-    
+
     int dist(int u, int v) {
         int w = this->operator()(u, v);
         return dep[u] + dep[v] - dep[w] * 2;
     }
-    
+
     S prod(int u, int v) {
         int l = this->operator()(u, v);
         int du = dist(u, l), dv = dist(v, l);
@@ -82,7 +82,7 @@ public:
         }
         return res;
     }
-    
+
     // path from u to v (including u, v)
     vi path(int u, int v) {
         int l = this->operator()(u, v);
@@ -104,14 +104,14 @@ public:
 class M {
 public:
     using S = ;
-    
+
     static constexpr S
     e =;
-    
-    // requirement : op(l, r) = op(r, l)
+
+    // must be commutative
     static constexpr S
-    
+
     op(const S &l, const S &r) {
-        ;
+        return;
     }
 };
