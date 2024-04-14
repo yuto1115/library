@@ -9,37 +9,37 @@ double to_deg(double rad) { return rad * 180 / PI; }
 
 struct point {
     double x, y;
-    
+
     point(double x = 0, double y = 0) : x(x), y(y) {}
-    
+
     point operator+(const point &p) const { return {x + p.x, y + p.y}; }
-    
+
     point operator-(const point &p) const { return {x - p.x, y - p.y}; }
-    
+
     point operator*(double a) const { return {x * a, y * a}; }
-    
+
     point operator*(const point &p) const { return point(x * p.x - y * p.y, x * p.y + y * p.x); }
-    
+
     point operator/(double a) const { return {x / a, y / a}; }
-    
+
     point operator-() const { return *this * (-1); }
-    
+
     bool operator==(const point &p) const { return !sgn(x - p.x) && !sgn(y - p.y); }
-    
+
     bool operator!=(const point &p) const { return !(*this == p); }
-    
+
     bool operator<(const point &p) const { return sgn(x - p.x) ? x < p.x : y < p.y; }
-    
+
     bool operator>(const point &p) const { return sgn(x - p.x) ? x > p.x : y > p.y; }
-    
+
     double norm() const { return x * x + y * y; }
-    
+
     double abs() const { return sqrt(norm()); }
-    
+
     point rot(double rad) const { return point(cos(rad) * x - sin(rad) * y, sin(rad) * x + cos(rad) * y); }
-    
+
     point rot90() const { return point(-y, x); }
-    
+
     double arg() const {
         double res = atan2(y, x);
         if (sgn(res) < 0) res += 2 * PI;
@@ -74,9 +74,9 @@ int ccw(const point &a, const point &b, const point &c) {
 
 struct line {
     point a, b;
-    
+
     line(point a = point(), point b = point()) : a(a), b(b) {}
-    
+
     bool online(const point &p) const { return abs(ccw(a, b, p)) != 1; }
 };
 
@@ -84,11 +84,11 @@ ostream &operator<<(ostream &os, const line &l) { return os << '{' << l.a << ','
 
 struct segment {
     point a, b;
-    
+
     segment(point a = point(), point b = point()) : a(a), b(b) {}
-    
+
     bool online(const point &p) const { return !ccw(a, b, p); }
-    
+
     line vertical_bisector() const { return line(mid(a, b), mid(a, b) + (b - a).rot90()); }
 };
 
@@ -172,11 +172,11 @@ point circumcenter(const point &a, const point &b, const point &c) {
 struct circle {
     point o;
     double r;
-    
+
     circle(point o = point(), double r = 0) : o(o), r(r) {}
-    
+
     bool inside(const point &p) const { return sgn(r - dist(o, p)) >= 0; }
-    
+
     double area() const { return r * r * PI; }
 };
 
@@ -201,7 +201,7 @@ vector <point> intersection(const circle &c, const line &l) {
 vector <point> intersection(const circle &c, const segment &l) {
     auto v = intersection(c, line(l.a, l.b));
     vector <point> ret;
-    for (point p : v) if (l.online(p)) ret.pb(p);
+    for (point p: v) if (l.online(p)) ret.pb(p);
     return ret;
 }
 
@@ -223,7 +223,7 @@ vector <circle> circle_with_two_points_and_radius(const point &a, const point &b
     circle A(a, r), B(b, r);
     auto v = intersection(A, B);
     vector <circle> ret;
-    for (point p : v) ret.eb(p, r);
+    for (point p: v) ret.eb(p, r);
     return ret;
 };
 
@@ -240,7 +240,7 @@ vector <line> tangent_line(const circle &c, const point &p) {
     if (v.empty()) return {};
     if (v.size() == 1) return {line(p, p + (c.o - p).rot90())};
     vector <line> res;
-    for (auto tp : v) res.eb(p, tp);
+    for (auto tp: v) res.eb(p, tp);
     return res;
 }
 
@@ -267,7 +267,7 @@ vector <line> tangent_line(const circle &a, const circle &b) {
         if (sgn(d - (ar + br)) >= 0) {
             point p = (a.o * br + b.o * ar) / (ar + br);
             vector <line> lines = tangent_line(a, p);
-            for (line l : lines) res.pb(l);
+            for (line l: lines) res.pb(l);
         }
         return res;
     }
