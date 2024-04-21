@@ -28,9 +28,9 @@ struct point {
 
     bool operator!=(const point &p) const { return !(*this == p); }
 
-    bool operator<(const point &p) const { return sgn(x - p.x) ? x < p.x : y < p.y; }
+    bool operator<(const point &p) const { return sgn(x - p.x) ? x < p.x : sgn(y - p.y) == -1; }
 
-    bool operator>(const point &p) const { return sgn(x - p.x) ? x > p.x : y > p.y; }
+    bool operator>(const point &p) const { return sgn(x - p.x) ? x > p.x : sgn(y - p.y) == 1; }
 
     double norm() const { return x * x + y * y; }
 
